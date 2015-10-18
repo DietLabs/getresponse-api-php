@@ -328,6 +328,22 @@ class GetResponse
     }
 
     /**
+     * Allows you to fetch statistics of newsletters based on list of
+     * campaignId's ot newsletterId's (you can pass them in query parameter -
+     * see description below). You should also remember that all statistics
+     * periods are given in standart UTC period type objects. (See ISO 8601 s
+     * tandard)
+     * 
+     * @param array $params ('query' required)
+     *
+     * @return mixed
+     */
+    public function getNewsletterStatistics($params = array())
+    {
+        return $this->call('newsletters/statistics?' . $this->setParams($params));
+    }
+
+    /**
      * Curl run request
      *
      * @param null $api_method
